@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  minecraft:
+    image: itzg/minecraft-server
+    container_name: minecraft-server
+    tty: true
+    stdin_open: true
+    ports:
+      - "25565:25565"
+    environment:
+      - EULA=TRUE
+    volumes:
+      - /Users/bensimmers/mcdata:/data
+    restart: unless-stopped
+    networks:
+      - minecraft_network
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+networks:
+  minecraft_network:
+    driver: bridge
