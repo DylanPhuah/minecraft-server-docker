@@ -1,4 +1,4 @@
-version: "3.8"
+version: "3"
 
 services:
   minecraft:
@@ -20,6 +20,18 @@ services:
       options:
         max-size: "10m"
         max-file: "3"
+
+  ngrok:
+    image: ngrok/ngrok:latest
+    container_name: ngrok-tunnel
+    restart: unless-stopped
+    command: start --all --config /etc/ngrok/ngrok.yml
+    volumes:
+      - /home/bensimmers/snap/ngrok/260/.config/ngrok/ngrok.yml:/etc/ngrok/ngrok.yml
+    ports:
+      - "4040:4040"
+    networks:
+      - minecraft_network
 
 networks:
   minecraft_network:

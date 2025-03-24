@@ -9,7 +9,7 @@ This is a simple Minecraft docker compose setup.
     - add your environment variables for your server settings
         - `EULA=true`
         - `PORT:25565`
-
+ngrok tcp 25565
 
 ## Run
 ```bash
