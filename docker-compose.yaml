@@ -27,7 +27,7 @@ services:
     restart: unless-stopped
     command: start --all --config /etc/ngrok/ngrok.yml
     volumes:
-      - /home/bensimmers/snap/ngrok/260/.config/ngrok/ngrok.yml:/etc/ngrok/ngrok.yml
+      - ./ngrok.yml:/etc/ngrok/ngrok.yml
     ports:
       - "4040:4040"
     networks:
